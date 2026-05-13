@@ -8,6 +8,6 @@ import java.util.List;
 
 
 @Repository
-public interface ZonaPescaRepository extends JpaRepository<ZonaPesca,Integer> {
+public interface ZonaPescaRepository extends JpaRepository<ZonaPesca,Long> {
     List<ZonaPesca> findByComunidad(String comunidad);
 }

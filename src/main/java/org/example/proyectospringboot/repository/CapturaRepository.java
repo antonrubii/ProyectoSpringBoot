@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CapturaRepository extends JpaRepository<Usuario,Integer> {
+public interface CapturaRepository extends JpaRepository<Captura,Long> {
     List<Captura> findByUsuarioId(Long usuarioId);
 }

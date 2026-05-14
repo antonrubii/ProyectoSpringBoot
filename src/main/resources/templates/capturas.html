@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Capturas</title>
+</head>
+<body>
+
+<h1>Capturas</h1>
+
+<div th:each="c : ${capturas}">
+    <p th:text="${c.especie}"></p>
+</div>
+
+</body>
+</html>

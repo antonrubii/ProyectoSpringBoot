@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface CapturaRepository extends JpaRepository<Captura,Long> {
     List<Captura> findByUsuarioId(Long usuarioId);
+    List<Captura> findByUsuarioEmail(String email);
 }

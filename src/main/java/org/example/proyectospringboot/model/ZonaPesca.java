@@ -2,6 +2,7 @@ package org.example.proyectospringboot.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,6 +27,9 @@ public class ZonaPesca {
 
     @ManyToMany(mappedBy = "zonas")
     private List<Captura> capturas;
+
+    @ManyToMany(mappedBy="zonasFavoritas")
+    private List<Usuario> usuarios = new ArrayList<>();
 
     public Long getId() {
         return id;

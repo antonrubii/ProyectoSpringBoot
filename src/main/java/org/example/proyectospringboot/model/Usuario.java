@@ -34,6 +34,17 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario")
     private List<Captura> capturas = new ArrayList<>();
 
+    @OneToOne(mappedBy="propietario")
+    private Embarcacion embarcacion;
+
+    @ManyToMany
+    @JoinTable(
+            name="usuario_zona",
+            joinColumns=@JoinColumn(name="usuario_id"),
+            inverseJoinColumns=@JoinColumn(name="zona_id")
+    )
+    private List<ZonaPesca> zonasFavoritas = new ArrayList<>();
+
     public Long getId() {
         return id;
     }

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión - PescaApp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+        }
+        .login-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            border: 2px solid #3a7bd5;
+            transition: transform 0.3s;
+        }
+        .login-header {
+            background: linear-gradient(to right, #2b5876, #4e4376);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .icon-marino {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .btn-pesca {
+            background: #2b6cb0;
+            color: white;
+            border: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-pesca:hover {
+            background: #1a446c;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .form-control:focus {
+            border-color: #2b6cb0;
+            box-shadow: 0 0 8px rgba(43, 108, 176, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container d-flex justify-content-center">
+    <div class="card login-card col-md-5">
+        <div class="login-header">
+            <div class="icon-marino">⚓</div>
+            <h3 class="m-0 fw-bold">PESCA APP</h3>
+            <small class="text-white-50">Ingresa a tu cuenta de Pescador</small>
+        </div>
+        <div class="card-body p-4">
+
+            <div th:if="${param.error}" class="alert alert-danger text-center py-2" role="alert">
+                ❌ Credenciales incorrectas. Inténtalo de nuevo.
+            </div>
+
+            <form th:action="@{/login}" method="post">
+                <div class="mb-3">
+                    <label class="form-label fw-bold text-secondary">Correo Electrónico</label>
+                    <input type="email" class="form-control" name="username" placeholder="ejemplo@puerto.com" required>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold text-secondary">Contraseña de Acceso</label>
+                    <input type="password" class="form-control" name="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn btn-pesca w-100 py-2.5 rounded-pill shadow-sm">🚢 Levar Anclas (Entrar)</button>
+            </form>
+        </div>
+        <div class="card-footer bg-light text-center py-3 border-0">
+            <a href="/capturas" class="text-decoration-none small text-muted">🌊 Entrar en modo lectura como Invitado</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
